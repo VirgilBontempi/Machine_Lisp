@@ -13,7 +13,6 @@ public class Symbole extends Atome {
 	 * @param chaine
 	 */
 	private Symbole(String chaine) {
-		// TODO Auto-generated constructor stub
 		this.caractere = chaine;
 	}
 	
@@ -29,49 +28,12 @@ public class Symbole extends Atome {
 		}
 		return table.get(chaine);
 	}
+
+	@Override
+	public boolean isSymbole() { return true; }
 	
-	
-	
-	@Override
-	public SExpr car() throws LispException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public SExpr cdr() throws LispException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean eq(SExpr sExpr) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean atom() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isNil() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isSymbole() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isCons() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	/**
+	 * TODO FAIRE LA JDOC
+	 */
+	public String toString(){ return this.caractere; }
 }
