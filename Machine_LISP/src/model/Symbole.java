@@ -36,4 +36,10 @@ public class Symbole extends Atome {
 	 * TODO FAIRE LA JDOC
 	 */
 	public String toString(){ return this.caractere; }
+
+	@Override
+	public SExpr eval() throws LispException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

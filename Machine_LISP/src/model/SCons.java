@@ -48,7 +48,7 @@ public class SCons implements Liste {
 	public boolean isCons() { return true; }
 
 	@Override
-	public String toString() { return "(" + this.toString(this) + ")"; }
+	public String toString() { return "(" + this.toString((SExpr)this) + ")"; }
 
 	/**
 	 * TODO FAIRE LA JDOC
@@ -56,17 +56,15 @@ public class SCons implements Liste {
 	 * @return
 	 */
 	private String toString(SExpr sExpr) {
-		String chaine = sExpr.car().toString() + " ";
-		
-		while(!sExpr.atom()) {
-			if(sExpr.cdr().atom()) {
-				chaine += ". " + sExpr.cdr().toString() + " ";
-			}
-			else {
-			chaine += sExpr.car().toString() + " ";
-			}
-			sExpr = sExpr.cdr();
-		}
-		return chaine.substring(0,chaine.length()-1);
+		if(sExpr.cdr().isNil()) return sExpr.car().toString();
+		if(sExpr.cdr().atom()) return sExpr.car().toString()+ " . " + sExpr.cdr().toString();
+		return sExpr.car().toString() +" "+ toString(sExpr.cdr())	;
 	}
+
+	@Override
+	public SExpr eval() throws LispException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
