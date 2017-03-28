@@ -21,9 +21,7 @@ public class Reader
 */
   public static void main(String [] args)
   {
-
-      System.out.println(Reader.importe("test.txt"));
-
+    System.out.println(Reader.importe("test.txt"));
   }
 
   public static SExpr read() throws LispException
@@ -179,77 +177,35 @@ TOKEN :
 }
 
 SExpr SEXPRESSION() :
-{
-  SExpr s1;
-}
-{
-  s1 = SEXPR()
-  {
-    return s1;
-  }
-}
+{SExpr s1;}
+{s1 = SEXPR(){return s1;}}
 
 void SEXPRESSIONS() :
+{SExpr s1;}
 {
-  SExpr s1;
-}
-{
-  (
-    s1 = SEXPRESSION()
-    {
-      s1.eval();
-    }
-  )*
-  < EOF >
+  (s1 = SEXPRESSION(){s1.eval();})*< EOF >
 }
 
 SExpr SEXPR() :
+{SExpr s1;}
 {
-  SExpr s1;
-}
-{
-  s1 = ATOME()
-  {
-    return s1;
-  }
-| 	< LPAREN > s1 = LIST() < RPAREN >
-  {
-    return s1;
-  }
-| 	< QUOTE > s1 = SEXPR()
-  {
-    return quote(s1);
-  }
+  		s1 = ATOME(){return s1;}
+	| 	< LPAREN > s1 = LIST() < RPAREN >{return s1;}
+	| 	< QUOTE > s1 = SEXPR(){return quote(s1);}
 }
 
 SExpr LIST() :
+{SExpr s1, s2;}
 {
-  SExpr s1, s2;
-}
-{
-  s1 = SEXPR()
-  (
-    < POINT > s2 = SEXPR()
-  | s2 = LIST()
-  )
-  {
-    return cons(s1, s2);
-  }
-|
-  {
-    return Nil.Nil;
-  }
+  s1 = SEXPR()(< POINT > s2 = SEXPR()| s2 = LIST()){return cons(s1, s2);}
+|{return Nil.Nil;}
 }
 
 SExpr ATOME() :
-{
-  SExpr s1;
-}
+{SExpr s1;}
 {
   s1 = SYMBOLE()
-  {
-    return s1;
-  }
+  {return s1;}
 }
 
 SExpr SYMBOLE() :
@@ -257,8 +213,5 @@ SExpr SYMBOLE() :
   Token s1;
 }
 {
-  s1 = < ID >
-  {
-    return Symbole.newSymbole(s1.image);
-  }
+  s1 = < ID >{return Symbole.newSymbole(s1.image);}
 }

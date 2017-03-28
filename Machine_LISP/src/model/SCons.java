@@ -25,41 +25,57 @@ public class SCons implements Liste {
 		this.car = sCons.car();
 		this.cdr = sCons.cdr();
 	}
-	
 
 	@Override
-	public SExpr car() throws LispException { return car; }
+	public SExpr car() throws LispException {
+		return car;
+	}
 
 	@Override
-	public SExpr cdr() throws LispException { return cdr; }
+	public SExpr cdr() throws LispException {
+		return cdr;
+	}
 
 	@Override
-	public boolean eq(SExpr sExpr) { return this == sExpr; }
+	public boolean eq(SExpr sExpr) {
+		return this == sExpr;
+	}
 
 	@Override
-	public boolean atom() { return false; }
+	public boolean atom() {
+		return false;
+	}
 
 	@Override
-	public boolean isNil() { return false; }
+	public boolean isNil() {
+		return false;
+	}
 
 	@Override
-	public boolean isSymbole() { return false; }
+	public boolean isSymbole() {
+		return false;
+	}
 
 	@Override
-	public boolean isCons() { return true; }
+	public boolean isCons() {
+		return true;
+	}
 
 	@Override
-	public String toString() { return "(" + this.toString((SExpr)this) + ")"; }
+	public String toString() {
+		return "(" + this.toString((SExpr) this) + ")";
+	}
 
 	/**
 	 * TODO FAIRE LA JDOC
+	 * 
 	 * @param sExpr
 	 * @return
 	 */
 	private String toString(SExpr sExpr) {
-		if(sExpr.cdr().isNil()) return sExpr.car().toString();
-		if(sExpr.cdr().atom()) return sExpr.car().toString()+ " . " + sExpr.cdr().toString();
-		return sExpr.car().toString() +" "+ toString(sExpr.cdr())	;
+		if (sExpr.cdr().isNil()) return sExpr.car().toString();
+		if (sExpr.cdr().atom()) return sExpr.car().toString() + " . " + sExpr.cdr().toString();
+		return sExpr.car().toString() + " " + toString(sExpr.cdr());
 	}
 
 	@Override
