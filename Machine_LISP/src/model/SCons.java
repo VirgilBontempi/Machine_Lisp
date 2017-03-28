@@ -16,17 +16,6 @@ public class SCons implements Liste {
 		this.cdr = cdr;
 	}
 
-	/**
-	 * Constructeur de SConsà partir d'un SCons
-	 * 
-	 * @param sCons
-	 */
-	public SCons(SCons sCons) {
-		this.car = sCons.car();
-		this.cdr = sCons.cdr();
-	}
-	
-
 	@Override
 	public SExpr car() throws LispException { return car; }
 
@@ -66,6 +55,17 @@ public class SCons implements Liste {
 	public SExpr eval() throws LispException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int size() {
+		SExpr cur = this;
+		int cpt=0;
+		while(!cur.isNil()){
+			cpt++;
+			cur=cur.cdr();
+		}
+		return cpt;
 	}
 
 }

@@ -2,6 +2,6 @@ package model;
 
 public interface _Reducer {
 
-	public void reduction(String foncteur, SCons parametre);
-	public void apply();
+	public SExpr reduction(SExpr foncteur, SExpr parametre);
+	public SExpr apply(SExpr foncteur, SExpr parametre);
 }

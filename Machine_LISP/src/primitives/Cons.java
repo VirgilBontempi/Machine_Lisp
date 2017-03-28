@@ -1,20 +1,17 @@
 package primitives;
 
 import model.Fsubr;
+import model.LispException;
+import model.Liste;
 import model.SCons;
+import model.SExpr;
 
 public class Cons extends Fsubr {
 
 	@Override
-	public void reduction(String foncteur, SCons parametre) {
-		// TODO Auto-generated method stub
-
+	public SExpr apply(SExpr foncteur, SExpr parametre) {
+		if (!(parametre.isCons() && ((Liste) parametre).size() == 2))
+			throw new LispException("Paramètes CONS violés");
+		return new SCons(parametre.cdr().car(), parametre.cdr().cdr());
 	}
-
-	@Override
-	public void apply() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

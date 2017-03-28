@@ -40,6 +40,6 @@ public class Symbole extends Atome {
 	@Override
 	public SExpr eval() throws LispException {
 		// TODO Auto-generated method stub
-		return null;
+		return Context.getSexpr(this);
 	}
 }

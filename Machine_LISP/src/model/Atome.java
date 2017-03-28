@@ -3,6 +3,12 @@ package model;
 public abstract class Atome implements SExpr {
 	
 	@Override
+	public SExpr eval() throws LispException {
+		// TODO Auto-generated method stub
+		return this;
+	}
+
+	@Override
 	public SExpr car() throws LispException {
 		throw new LispException("Un Atome n'a pas de car.");
 	}

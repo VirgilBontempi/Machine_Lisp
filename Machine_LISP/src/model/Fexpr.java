@@ -1,5 +1,11 @@
 package model;
 
-public abstract class Fexpr extends Reducer{
+public class Fexpr extends Reducer{
+
+	@Override
+	protected SExpr evalArgs(SExpr largs) {
+		// TODO Auto-generated method stub
+		return largs;
+	}
 
 }
