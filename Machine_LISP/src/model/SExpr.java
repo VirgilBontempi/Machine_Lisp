@@ -15,6 +15,8 @@ public interface SExpr {
 	 */
 	public SExpr cdr() throws LispException;
 	
+	public SExpr eval() throws LispException;
+	
 	/**
 	 * Retourne vrai si les éléments sont identiques (==)
 	 * @param sExpr

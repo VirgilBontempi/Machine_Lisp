@@ -20,4 +20,10 @@ public class Nil extends Atome implements Liste {
 	 * @return
 	 */
 	public String toString(){ return "()"; }
+
+	@Override
+	public SExpr eval() throws LispException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
