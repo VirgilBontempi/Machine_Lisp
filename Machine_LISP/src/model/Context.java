@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import primitives.Car;
+import primitives.Cdr;
+import primitives.Cond;
+import primitives.Cons;
+
 public class Context {
 
 	private static Map<SExpr, SExpr> table = new HashMap<>();
@@ -12,6 +17,10 @@ public class Context {
 	static{
 		Symbole t = Symbole.newSymbole("t"); define(t,t);
 		Symbole nil = Symbole.newSymbole("nil"); define(nil,Nil.Nil);
+		Symbole car = Symbole.newSymbole("car"); define(car, Car.CAR);
+		Symbole cdr = Symbole.newSymbole("cdr"); define(cdr, Cdr.CDR);
+		Symbole cons = Symbole.newSymbole("cons"); define(cons, Cons.CONS);
+		Symbole cond = Symbole.newSymbole("cond"); define(cond, Cond.COND);
 	}
 	
 	public static SExpr getSexpr(Symbole symbole){

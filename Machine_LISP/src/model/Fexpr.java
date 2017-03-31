@@ -7,5 +7,6 @@ public class Fexpr extends Reducer{
 		// TODO Auto-generated method stub
 		return largs;
 	}
-
+	
+	public final static Fexpr fexpr = new Fexpr(); 
 }

@@ -7,4 +7,5 @@ public class Expr extends Reducer{
 		return new SCons(largs.car().eval(),evalArgs(largs.cdr()));
 	}
 
+	public final static Expr expr = new Expr();
 }

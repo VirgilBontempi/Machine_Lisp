@@ -21,7 +21,11 @@ public class Reader
 */
   public static void main(String [] args)
   {
-    System.out.println(Reader.importe("test.txt"));
+    Symbole.newSymbole("car");
+    while(true)
+    { 
+    System.out.println(Reader.read().eval());
+  	}
   }
 
   public static SExpr read() throws LispException

@@ -14,4 +14,5 @@ public class Cdr extends Subr {
 		return parametre.cdr().car();
 	}
 
+	public static final Cdr CDR = new Cdr();
 }

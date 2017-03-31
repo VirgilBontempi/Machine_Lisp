@@ -54,7 +54,22 @@ public class SCons implements Liste {
 	@Override
 	public SExpr eval() throws LispException {
 		// TODO Auto-generated method stub
-		return null;
+		SExpr retourEval = car.eval();
+		
+		if(retourEval instanceof Primitive) {
+			return ((Primitive) retourEval).reduction(retourEval, this.cdr());
+		}
+		else {
+			if(retourEval.car().eq(Symbole.newSymbole("lambda"))) {
+				return Expr.expr.reduction(retourEval, retourEval.cdr());
+			}
+			else if (retourEval.car().eq(Symbole.newSymbole("flambda"))) {
+				return Fexpr.fexpr.reduction(retourEval, retourEval.cdr());
+			}
+			else {
+				throw new LispException("Exception eval CONS");
+			}
+		}
 	}
 
 	@Override

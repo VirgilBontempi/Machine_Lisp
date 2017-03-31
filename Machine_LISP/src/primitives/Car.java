@@ -13,4 +13,6 @@ public class Car extends Subr {
 			throw new LispException("Paramètes CAR violés");
 		return parametre.car().car();
 	}
+	
+	public static final Car CAR = new Car();
 }

@@ -10,4 +10,6 @@ public class Cond extends Fsubr {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public static final Cond COND = new Cond();
 }

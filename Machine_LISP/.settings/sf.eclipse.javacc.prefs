@@ -1,6 +1,6 @@
 CLEAR_CONSOLE=true
 FORMAT_BEFORE_SAVE=false
-JAVACC_OPTIONS=-OUTPUT_DIRECTORY\=C\:\\Users\\Thomas\\git\\Machine_Lisp\\Machine_LISP\\scr\\Gramm
+JAVACC_OPTIONS=-OUTPUT_DIRECTORY\=/ext/bontempv/Bureau/S6/ProgOrienteeObjet/WorkSpaceEclipse/Machine_LISP/reader/Gramm
 JJDOC_OPTIONS=
 JJTREE_OPTIONS=
 JJ_NATURE=true

@@ -14,4 +14,6 @@ public class Cons extends Fsubr {
 			throw new LispException("Paramètes CONS violés");
 		return new SCons(parametre.cdr().car(), parametre.cdr().cdr());
 	}
+	
+	public static final Cons CONS = new Cons();
 }
